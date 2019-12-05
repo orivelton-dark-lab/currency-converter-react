@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import GetApi from '../../services/Api'
 
 const Converter = ({coinA, coinB}) => {
   const [valueA, setValueA] = useState(0);
@@ -6,16 +7,8 @@ const Converter = ({coinA, coinB}) => {
 
   const updateValueB = (e) => setValueB(e.target.value);
   const converter = async () => {
-    const toCoin = `${coinA}_${coinB}`;
-    const url = `http://free.currencyconverterapi.com/api/v5/convert?q=${toCoin}&compact=y&apiKey=9b7c22b4b5135843d9c7`;
-
-    const getData = await fetch(url);
-    const data = await getData.json();
-
-    const currency = data[toCoin].val;
-
-    setValueA(parseFloat(valueB * currency).toFixed(2));
-
+    const data = await GetApi(coinA, coinB, valueB);
+    setValueA(data);
   }
 
   return(

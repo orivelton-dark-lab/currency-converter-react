@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot renders 1`] = `
+Array [
+  <h2>
+    USD
+     to 
+    BRL
+  </h2>,
+  <input
+    onChange={[Function]}
+    type="text"
+  />,
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Converter
+  </button>,
+  <p>
+    Result: 
+    0
+     
+  </p>,
+]
+`;
